@@ -18,9 +18,9 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a', // slate-900
-                        darkCard: '#1e293b', // slate-800
-                        darkBorder: '#334155', // slate-700
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        darkBorder: '#334155',
                         cyanAccent: '#06b6d4',
                         indigoAccent: '#6366f1',
                         emeraldAccent: '#10b981'
@@ -64,16 +64,15 @@
                 linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
-        /* Custom image glow effect */
         .hero-portrait-glow {
             box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.35), 0 0 80px -20px rgba(99, 102, 241, 0.25);
         }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 font-sans antialiased selection:bg-cyanAccent selection:text-darkBg min-h-screen flex flex-col relative bg-grid-pattern overflow-x-hidden">
+<body class="bg-darkBg text-slate-200 font-sans antialiased selection:bg-cyanAccent selection:text-darkBg min-h-screen flex flex-col relative bg-grid-pattern overflow-x-hidden w-full">
 
     <!-- STICKY NAVIGATION BAR -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-darkBg/85 backdrop-blur-md border-b border-darkBorder transition-all duration-300">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-darkBg/90 backdrop-blur-md border-b border-darkBorder transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="#hero" class="flex items-center gap-3 group">
@@ -103,7 +102,7 @@
 
             <!-- Mobile Hamburger Button -->
             <button id="menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Toggle Navigation">
-                <i class="fa-solid fa-bars text-xl"></i>
+                <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
 
@@ -122,87 +121,75 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION WITH FEATURED ENLARGED PICTURE -->
-    <section id="hero" class="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-10 items-center">
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-28 pb-12 md:pt-36 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            <!-- Left Column: Intro & Headline Text (7 Cols) -->
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left order-2 lg:order-1">
+            <!-- Left Column: Intro & Headline Text -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left order-2 lg:order-1 w-full min-w-0">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyanAccent/10 border border-cyanAccent/30 text-cyanAccent text-xs sm:text-sm font-mono tracking-wide">
                     <span class="w-2.5 h-2.5 rounded-full bg-emeraldAccent animate-ping"></span>
                     <span>Open for DevOps & Frontend Roles</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight break-words">
                     Ogbu Godwin Emeka
                 </h1>
 
-                <p class="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyanAccent via-indigoAccent to-emeraldAccent">
+                <p class="text-lg sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyanAccent via-indigoAccent to-emeraldAccent">
                     DevOps Engineer & Software Developer | Frontend Specialist
                 </p>
 
-                <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+                <p class="text-slate-300 text-sm sm:text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0">
                     Passionate about building user-friendly and responsive web applications. Experienced in React, JavaScript, HTML/CSS, and modern web technologies that deliver exceptional user experiences.
                 </p>
 
-                <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                    <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyanAccent to-indigoAccent text-darkBg font-bold text-sm hover:shadow-lg hover:shadow-cyanAccent/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4">
+                    <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyanAccent to-indigoAccent text-darkBg font-bold text-sm hover:shadow-lg hover:shadow-cyanAccent/20 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
                         <span>View Projects</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
-                    <a href="#contact" class="px-6 py-3.5 rounded-xl glass-card text-slate-200 font-semibold text-sm hover:border-slate-400 hover:text-white transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl glass-card text-slate-200 font-semibold text-sm hover:border-slate-400 hover:text-white transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
                         <i class="fa-regular fa-paper-plane"></i>
                         <span>Get in Touch</span>
                     </a>
-                    <button onclick="openCvModal()" class="px-6 py-3.5 rounded-xl bg-emeraldAccent/10 border border-emeraldAccent/40 text-emeraldAccent font-semibold text-sm hover:bg-emeraldAccent/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl bg-emeraldAccent/10 border border-emeraldAccent/40 text-emeraldAccent font-semibold text-sm hover:bg-emeraldAccent/20 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
                         <i class="fa-solid fa-file-arrow-down"></i>
                         <span>Download CV</span>
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Quick Social & Contact Badges -->
-                <div class="pt-4 flex items-center justify-center lg:justify-start gap-5 text-slate-400">
-                    <span class="text-xs uppercase tracking-widest text-slate-500 font-mono">Quick Connect:</span>
+                <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-5 text-slate-400">
+                    <span class="text-xs uppercase tracking-widest text-slate-500 font-mono w-full sm:w-auto text-center sm:text-left">Quick Connect:</span>
                     <a href="https://github.com" target="_blank" aria-label="GitHub Profile" class="hover:text-cyanAccent text-xl transition-colors"><i class="fa-brands fa-github"></i></a>
                     <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn Profile" class="hover:text-cyanAccent text-xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://wa.me/2348143818332" target="_blank" aria-label="WhatsApp" class="hover:text-emeraldAccent text-xl transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="mailto:ogbugodwinemeka@example.com" aria-label="Send Email" class="hover:text-cyanAccent text-xl transition-colors"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="mailto:ogbugodwinemeka@gmail.com" aria-label="Send Email" class="hover:text-cyanAccent text-xl transition-colors"><i class="fa-regular fa-envelope"></i></a>
                 </div>
             </div>
 
-            <!-- Right Column: ENLARGED HERO PORTRAIT PICTURE (5 Cols) -->
-            <div class="lg:col-span-5 flex flex-col items-center justify-center order-1 lg:order-2">
-                <div class="relative w-full max-w-[360px] sm:max-w-[400px]">
-                    <!-- Ambient Glow Behind Photo -->
+            <!-- Right Column: HERO PORTRAIT PICTURE -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center order-1 lg:order-2 w-full">
+                <div class="relative w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[400px]">
                     <div class="absolute -inset-1 bg-gradient-to-r from-cyanAccent via-indigoAccent to-emeraldAccent rounded-3xl blur-xl opacity-40 hover:opacity-75 transition duration-500"></div>
                     
-                    <!-- Main Featured Photo Container -->
                     <div class="relative glass-card rounded-3xl p-3 sm:p-4 border border-cyanAccent/30 hero-portrait-glow overflow-hidden group">
-                        <div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer" onclick="openPhotoModal()">
+                        <div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden">
                             <img src="profile.jpg" 
                                  onerror="this.onerror=null; this.src='https://placehold.co/600x800/1e293b/06b6d4?text=Ogbu+Godwin+Emeka';" 
                                  alt="Ogbu Godwin Emeka - DevOps Engineer & Software Developer" 
                                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                             
-                            <!-- Overlay Hover Action Badge -->
-                            <div class="absolute inset-0 bg-darkBg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 text-white p-4">
-                                <div class="w-12 h-12 rounded-full bg-cyanAccent/80 text-darkBg flex items-center justify-center text-lg">
-                                    <i class="fa-solid fa-expand"></i>
-                                </div>
-                                <span class="text-xs font-mono font-bold tracking-wider uppercase">Click to expand photo</span>
-                            </div>
-
-                            <!-- Live Status Tag Pin -->
                             <div class="absolute bottom-3 left-3 right-3 bg-darkBg/80 backdrop-blur-md px-3 py-2 rounded-xl border border-white/10 flex items-center justify-between text-xs font-mono">
-                                <span class="text-slate-300"><i class="fa-solid fa-circle-check text-emeraldAccent mr-1"></i> Godwin Emeka</span>
-                                <span class="text-cyanAccent font-semibold">DevOps / UI</span>
+                                <span class="text-slate-300 truncate"><i class="fa-solid fa-circle-check text-emeraldAccent mr-1"></i> Godwin Emeka</span>
+                                <span class="text-cyanAccent font-semibold shrink-0">DevOps / UI</span>
                             </div>
                         </div>
 
-                        <!-- Mini Quick Info Ribbon -->
                         <div class="mt-3 px-2 flex items-center justify-between text-xs text-slate-400 font-mono">
-                            <span><i class="fa-solid fa-location-dot text-cyanAccent mr-1"></i> Available Worldwide</span>
-                            <span class="text-emeraldAccent"><i class="fa-solid fa-bolt mr-1"></i> Full-Time / Remote</span>
+                            <span><i class="fa-solid fa-location-dot text-cyanAccent mr-1"></i> Worldwide</span>
+                            <span class="text-emeraldAccent"><i class="fa-solid fa-bolt mr-1"></i> Remote / On-Site</span>
                         </div>
                     </div>
                 </div>
@@ -210,8 +197,8 @@
 
         </div>
 
-        <!-- CLI TERMINAL WIDGET (FULL WIDTH HERO COMPONENT) -->
-        <div class="mt-12 max-w-4xl mx-auto">
+        <!-- CLI TERMINAL WIDGET -->
+        <div class="mt-12 max-w-4xl mx-auto w-full">
             <div class="glass-card rounded-2xl p-4 sm:p-6 shadow-2xl relative overflow-hidden hover:border-cyanAccent/50 transition-all">
                 <div class="flex items-center justify-between pb-3 border-b border-darkBorder mb-4">
                     <div class="flex items-center gap-2">
@@ -219,22 +206,22 @@
                         <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                         <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
                     </div>
-                    <span class="text-xs font-mono text-slate-400"><i class="fa-solid fa-terminal text-cyanAccent mr-1"></i> godwin@devops-node:~</span>
+                    <span class="text-xs font-mono text-slate-400 truncate"><i class="fa-solid fa-terminal text-cyanAccent mr-1"></i> godwin@devops-node:~</span>
                 </div>
                 
                 <div class="font-mono text-xs sm:text-sm space-y-3">
                     <p class="text-slate-400"><span class="text-emeraldAccent">godwin@devops-node</span>:<span class="text-cyanAccent">~</span>$ whoami</p>
-                    <p class="text-slate-200 pl-4 border-l-2 border-cyanAccent">Ogbu Godwin Emeka - DevOps Engineer & Software Developer</p>
+                    <p class="text-slate-200 pl-3 sm:pl-4 border-l-2 border-cyanAccent">Ogbu Godwin Emeka - DevOps Engineer & Software Developer</p>
 
                     <p class="text-slate-400"><span class="text-emeraldAccent">godwin@devops-node</span>:<span class="text-cyanAccent">~</span>$ cat skills.json</p>
                     <div class="text-cyan-300/90 bg-darkBg/90 p-3 sm:p-4 rounded-xl border border-darkBorder/80 overflow-x-auto">
-                        <pre class="text-[11px] sm:text-xs leading-relaxed">{
+                        <pre class="text-[11px] sm:text-xs leading-relaxed font-mono">{
   "name": "Ogbu Godwin Emeka",
-  "email": "ogbugodwinemeka@example.com",
+  "email": "ogbugodwinemeka@gmail.com",
   "phone": "08143818332",
   "frontend": ["React", "JavaScript", "HTML/CSS", "Tailwind CSS"],
   "devops": ["Docker", "Linux/Bash", "CI/CD Pipelines", "Git & GitHub"],
-  "location": "Available Worldwide (Remote / On-Site)"
+  "location": "Umuahia, Abia State, Nigeria (Remote / On-Site)"
 }</pre>
                     </div>
 
@@ -248,59 +235,59 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION WITH LARGE AVATAR CARD -->
-    <section id="about" class="py-20 bg-darkCard/30 border-y border-darkBorder/60">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-16 sm:py-20 bg-darkCard/30 border-y border-darkBorder/60 w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
                 <h2 class="text-xs font-mono font-bold tracking-widest text-cyanAccent uppercase mb-2">01. Summary</h2>
-                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">About Me</h3>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white">About Me</h3>
                 <div class="w-12 h-1 bg-gradient-to-r from-cyanAccent to-indigoAccent mx-auto mt-4 rounded-full"></div>
             </div>
 
             <div class="grid lg:grid-cols-12 gap-8 items-center">
-                <!-- Highlight Card with Prominent Enlarged Portrait Avatar -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-md glass-card rounded-2xl p-6 sm:p-8 space-y-6">
-                        <div class="flex items-center gap-5">
-                            <div class="relative cursor-pointer" onclick="openPhotoModal()">
+                <!-- Highlight Card -->
+                <div class="lg:col-span-5 flex justify-center w-full">
+                    <div class="relative w-full max-w-md glass-card rounded-2xl p-5 sm:p-8 space-y-6">
+                        <div class="flex items-center gap-4 sm:gap-5">
+                            <div class="relative shrink-0">
                                 <img src="profile.jpg" 
                                      onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e293b/06b6d4?text=Godwin';" 
                                      alt="Ogbu Godwin Emeka" 
-                                     class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover border-2 border-cyanAccent shadow-lg shadow-cyanAccent/20 hover:scale-105 transition-transform duration-300">
+                                     class="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl object-cover border-2 border-cyanAccent shadow-lg shadow-cyanAccent/20">
                                 <div class="absolute -bottom-1 -right-1 bg-emeraldAccent text-darkBg w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" title="Available">
                                     <i class="fa-solid fa-check"></i>
                                 </div>
                             </div>
-                            <div>
-                                <h4 class="text-white font-bold text-xl sm:text-2xl">Ogbu Godwin Emeka</h4>
-                                <p class="text-xs sm:text-sm font-mono text-cyanAccent mt-1">DevOps & Frontend Specialist</p>
+                            <div class="min-w-0">
+                                <h4 class="text-white font-bold text-lg sm:text-2xl truncate">Ogbu Godwin Emeka</h4>
+                                <p class="text-xs sm:text-sm font-mono text-cyanAccent mt-1 truncate">DevOps & Frontend Specialist</p>
                                 <span class="inline-block mt-2 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emeraldAccent/10 text-emeraldAccent border border-emeraldAccent/30">
                                     Worldwide Remote
                                 </span>
                             </div>
                         </div>
-                        <p class="text-slate-300 text-sm leading-relaxed">
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
                             Combining frontend precision with cloud and DevOps automation to create high-quality, fast, and scalable web solutions.
                         </p>
-                        <div class="space-y-2 pt-2 border-t border-darkBorder text-xs text-slate-400 font-mono">
-                            <p><i class="fa-solid fa-earth-americas text-cyanAccent mr-2"></i> Available Worldwide (Remote / On-Site)</p>
+                        <div class="space-y-2 pt-2 border-t border-darkBorder text-xs text-slate-400 font-mono break-all">
+                            <p><i class="fa-solid fa-earth-americas text-cyanAccent mr-2"></i> Remote / On-Site</p>
                             <p><i class="fa-solid fa-phone text-emeraldAccent mr-2"></i> 08143818332</p>
-                            <p><i class="fa-regular fa-envelope text-indigoAccent mr-2"></i> ogbugodwinemeka@example.com</p>
+                            <p><i class="fa-regular fa-envelope text-indigoAccent mr-2"></i> ogbugodwinemeka@gmail.com</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Descriptive Content -->
-                <div class="lg:col-span-7 space-y-6">
+                <div class="lg:col-span-7 space-y-6 w-full">
                     <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
                         I am a dedicated <strong class="text-white">DevOps Engineer & Software Developer</strong> specializing in building responsive and accessible frontend applications using React, JavaScript, HTML5, and Tailwind CSS.
                     </p>
-                    <p class="text-slate-400 text-base leading-relaxed">
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
                         Beyond crafting clean user interfaces, I focus on system reliability, containerization with Docker, automated deployment pipelines, and streamlined cloud workflows to ensure web applications run smoothly from code to deployment.
                     </p>
 
                     <!-- Core Strengths Cards -->
-                    <div class="grid sm:grid-cols-3 gap-4 pt-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
                         <div class="p-4 rounded-xl glass-card">
                             <i class="fa-brands fa-react text-cyanAccent text-2xl mb-2"></i>
                             <h4 class="text-white font-bold text-sm">Frontend UI</h4>
@@ -323,31 +310,31 @@
     </section>
 
     <!-- SKILLS & COMPETENCIES SECTION -->
-    <section id="skills" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-12">
+    <section id="skills" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="text-center max-w-3xl mx-auto mb-10">
             <h2 class="text-xs font-mono font-bold tracking-widest text-cyanAccent uppercase mb-2">02. Capabilities</h2>
-            <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Core Competencies</h3>
+            <h3 class="text-2xl sm:text-4xl font-extrabold text-white">Core Competencies</h3>
             <p class="text-slate-400 mt-3 text-sm sm:text-base">Categorized breakdown of technical skills, technologies, and workflow tools.</p>
         </div>
 
         <!-- Filter Tabs -->
         <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
-            <button onclick="filterSkills('all')" class="skill-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-cyanAccent text-darkBg" data-category="all">
+            <button onclick="filterSkills('all')" class="skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-cyanAccent text-darkBg" data-category="all">
                 All Skills
             </button>
-            <button onclick="filterSkills('frontend')" class="skill-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white" data-category="frontend">
+            <button onclick="filterSkills('frontend')" class="skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white" data-category="frontend">
                 Frontend Development
             </button>
-            <button onclick="filterSkills('devops')" class="skill-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white" data-category="devops">
+            <button onclick="filterSkills('devops')" class="skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white" data-category="devops">
                 DevOps & Infrastructure
             </button>
-            <button onclick="filterSkills('tools')" class="skill-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white" data-category="tools">
+            <button onclick="filterSkills('tools')" class="skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white" data-category="tools">
                 Tools & Workflow
             </button>
         </div>
 
         <!-- Skill Cards Grid -->
-        <div id="skills-container" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div id="skills-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             <!-- Frontend Cards -->
             <div class="skill-card glass-card rounded-xl p-5 transition-all duration-300" data-category="frontend">
                 <div class="flex items-center justify-between mb-3">
@@ -438,7 +425,7 @@
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-cloud text-2xl text-emeraldAccent"></i>
-                        <h4 class="font-bold text-white">CI/CD & Cloud Basics</h4>
+                        <h4 class="font-bold text-white">CI/CD & Cloud</h4>
                     </div>
                     <span class="text-xs font-mono text-cyanAccent bg-cyanAccent/10 px-2 py-1 rounded">Intermediate</span>
                 </div>
@@ -481,310 +468,67 @@
                 <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-globe text-2xl text-teal-400"></i>
-                        <h4 class="font-bold text-white">Netlify & Hosting</h4>
+                        <h4 class="font-bold text-white">Supabase / Web Hosting</h4>
                     </div>
                     <span class="text-xs font-mono text-cyanAccent bg-cyanAccent/10 px-2 py-1 rounded">Advanced</span>
                 </div>
-                <p class="text-xs text-slate-400 mb-3">Continuous deployment, DNS setup, SSL configuration, static site hosting.</p>
+                <p class="text-xs text-slate-400 mb-3">Backend-as-a-service, Row Level Security, Netlify, and automated static hosting.</p>
                 <div class="w-full bg-darkBg rounded-full h-1.5">
-                    <div class="bg-emeraldAccent h-1.5 rounded-full" style="width: 88%"></div>
-                </div>
-            </div>
-
-            <div class="skill-card glass-card rounded-xl p-5 transition-all duration-300" data-category="tools">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-database text-2xl text-emerald-400"></i>
-                        <h4 class="font-bold text-white">Supabase / Databases</h4>
-                    </div>
-                    <span class="text-xs font-mono text-cyanAccent bg-cyanAccent/10 px-2 py-1 rounded">Advanced</span>
-                </div>
-                <p class="text-xs text-slate-400 mb-3">Relational database design, Row-Level Security (RLS) policies, backend APIs.</p>
-                <div class="w-full bg-darkBg rounded-full h-1.5">
-                    <div class="bg-indigoAccent h-1.5 rounded-full" style="width: 82%"></div>
+                    <div class="bg-emeraldAccent h-1.5 rounded-full" style="width: 85%"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FEATURED PROJECTS SECTION -->
-    <section id="projects" class="py-20 bg-darkCard/30 border-y border-darkBorder/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-mono font-bold tracking-widest text-cyanAccent uppercase mb-2">03. Portfolio Showcase</h2>
-                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Featured Projects</h3>
-                <p class="text-slate-400 mt-3 text-sm sm:text-base">Selected frontend applications, full-stack tools, and DevOps automation projects.</p>
-            </div>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-16 sm:py-20 bg-darkCard/20 border-t border-darkBorder/60 w-full">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-xs font-mono font-bold tracking-widest text-cyanAccent uppercase mb-2">03. Connect</h2>
+            <h3 class="text-2xl sm:text-4xl font-extrabold text-white">Get In Touch</h3>
+            <p class="text-slate-400 mt-3 text-sm sm:text-base max-w-xl mx-auto">
+                Whether you have an upcoming project, a job opportunity, or just want to connect, feel free to reach out!
+            </p>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project Card 1 -->
-                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-                    <div class="p-6 bg-gradient-to-r from-cyan-900/30 to-indigo-900/30 border-b border-darkBorder flex justify-between items-start">
-                        <div>
-                            <span class="text-xs font-mono text-cyanAccent bg-cyanAccent/10 px-2.5 py-1 rounded-full">Frontend Application</span>
-                            <h4 class="text-xl font-extrabold text-white mt-2 group-hover:text-cyanAccent transition-colors">Responsive Web Suite (React)</h4>
-                        </div>
-                        <i class="fa-brands fa-react text-3xl text-cyanAccent/40"></i>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            A high-performance interactive frontend portal built with React, JavaScript, and Tailwind CSS. Features dynamic viewports, fast UI state rendering, and sleek dark mode aesthetics.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-cyanAccent">
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">React</span>
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">JavaScript</span>
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">Tailwind CSS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-                    <div class="p-6 bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border-b border-darkBorder flex justify-between items-start">
-                        <div>
-                            <span class="text-xs font-mono text-indigoAccent bg-indigoAccent/10 px-2.5 py-1 rounded-full">DevOps Automation</span>
-                            <h4 class="text-xl font-extrabold text-white mt-2 group-hover:text-indigoAccent transition-colors">Linux & Docker CI/CD Scripts</h4>
-                        </div>
-                        <i class="fa-brands fa-docker text-3xl text-indigoAccent/40"></i>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            Custom Bash scripting suite and Docker Compose automation designed for continuous integration, server environment setup, and automated deployment pipelines.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-indigoAccent">
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">Docker</span>
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">Linux / Bash</span>
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">CI/CD</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-                    <div class="p-6 bg-gradient-to-r from-emerald-900/30 to-teal-900/30 border-b border-darkBorder flex justify-between items-start">
-                        <div>
-                            <span class="text-xs font-mono text-emeraldAccent bg-emeraldAccent/10 px-2.5 py-1 rounded-full">AgroTech Platform</span>
-                            <h4 class="text-xl font-extrabold text-white mt-2 group-hover:text-emeraldAccent transition-colors">AgroLink Portal</h4>
-                        </div>
-                        <i class="fa-solid fa-leaf text-3xl text-emeraldAccent/40"></i>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            Web portal connecting agricultural stakeholders with streamlined marketplace listings, data tracking, and fast mobile-optimized dashboard tools.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-emeraldAccent">
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">HTML5/CSS3</span>
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">JavaScript</span>
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">Supabase</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 4 -->
-                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-                    <div class="p-6 bg-gradient-to-r from-amber-900/30 to-orange-900/30 border-b border-darkBorder flex justify-between items-start">
-                        <div>
-                            <span class="text-xs font-mono text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-full">Enterprise Solution</span>
-                            <h4 class="text-xl font-extrabold text-white mt-2 group-hover:text-amber-400 transition-colors">SAMBLESS Rental Enterprise</h4>
-                        </div>
-                        <i class="fa-solid fa-building text-3xl text-amber-400/40"></i>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            Full-featured enterprise web app for equipment and logistics rental booking management with real-time availability filters and customer tracking.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-amber-400">
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">React</span>
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">Tailwind CSS</span>
-                            <span class="bg-darkBg/60 px-2.5 py-1 rounded border border-darkBorder">REST API</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE TIMELINE SECTION -->
-    <section id="experience" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-xs font-mono font-bold tracking-widest text-cyanAccent uppercase mb-2">04. Journey</h2>
-            <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Career & Experience</h3>
-            <p class="text-slate-400 mt-3 text-sm sm:text-base">Professional roles, technical achievements, and hands-on contributions.</p>
-        </div>
-
-        <div class="max-w-4xl mx-auto relative border-l-2 border-darkBorder ml-4 sm:ml-32 space-y-12">
-            <!-- Experience Item 1 -->
-            <div class="relative pl-6 sm:pl-8 group">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyanAccent ring-4 ring-darkBg group-hover:scale-125 transition-transform"></div>
-                <div class="sm:absolute sm:-left-36 sm:top-1 text-xs font-mono text-cyanAccent uppercase tracking-wider mb-2 sm:mb-0">
-                    2023 - PRESENT
-                </div>
-                <div class="glass-card rounded-2xl p-6 space-y-3">
-                    <div class="flex flex-wrap items-center justify-between gap-2">
-                        <h4 class="text-xl font-bold text-white">DevOps & Frontend Developer</h4>
-                        <span class="text-xs font-mono bg-cyanAccent/10 text-cyanAccent px-3 py-1 rounded-full">J-Click Smart Tech</span>
-                    </div>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Leading frontend interface design and cloud integration. Engineered responsive React web components, optimized web load speeds, and set up Dockerized deployment environments for client projects.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Experience Item 2 -->
-            <div class="relative pl-6 sm:pl-8 group">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigoAccent ring-4 ring-darkBg group-hover:scale-125 transition-transform"></div>
-                <div class="sm:absolute sm:-left-36 sm:top-1 text-xs font-mono text-indigoAccent uppercase tracking-wider mb-2 sm:mb-0">
-                    2022 - 2023
-                </div>
-                <div class="glass-card rounded-2xl p-6 space-y-3">
-                    <div class="flex flex-wrap items-center justify-between gap-2">
-                        <h4 class="text-xl font-bold text-white">Software Engineering Specialist</h4>
-                        <span class="text-xs font-mono bg-indigoAccent/10 text-indigoAccent px-3 py-1 rounded-full">ThriveAbia & QurateHQ</span>
-                    </div>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Developed semantic HTML/CSS and JavaScript modules for enterprise dashboards. Collaborated with cross-functional technical teams to streamline database integrations and continuous delivery pipelines.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION & WORKING FORM -->
-    <section id="contact" class="py-20 bg-darkCard/30 border-t border-darkBorder/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-mono font-bold tracking-widest text-cyanAccent uppercase mb-2">05. Connect</h2>
-                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Get In Touch</h3>
-                <p class="text-slate-400 mt-3 text-sm sm:text-base">Have a project, role opportunity, or query? Reach out directly using the form or channels below.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
-                <!-- Direct Info Cards -->
-                <div class="lg:col-span-5 space-y-4">
-                    <div class="glass-card rounded-2xl p-6 flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-cyanAccent/10 text-cyanAccent flex items-center justify-center text-xl shrink-0">
-                            <i class="fa-solid fa-earth-americas"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-mono text-slate-400 uppercase">Location & Reach</h4>
-                            <p class="text-white font-semibold text-sm">Available Worldwide (Remote / On-Site)</p>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-6 flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-emeraldAccent/10 text-emeraldAccent flex items-center justify-center text-xl shrink-0">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-mono text-slate-400 uppercase">Phone & WhatsApp</h4>
-                            <a href="https://wa.me/2348143818332" target="_blank" class="text-emeraldAccent hover:underline font-semibold text-sm">08143818332</a>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-6 flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-indigoAccent/10 text-indigoAccent flex items-center justify-center text-xl shrink-0">
-                            <i class="fa-regular fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-mono text-slate-400 uppercase">Email Address</h4>
-                            <a href="mailto:ogbugodwinemeka@example.com" class="text-indigoAccent hover:underline font-semibold text-sm">ogbugodwinemeka@example.com</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Interactive Contact Form -->
-                <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8">
-                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-xs font-mono text-slate-300 mb-1">Your Name</label>
-                            <input type="text" id="name" required placeholder="John Doe" class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyanAccent transition-colors">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-xs font-mono text-slate-300 mb-1">Your Email</label>
-                            <input type="email" id="email" required placeholder="john@example.com" class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyanAccent transition-colors">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-xs font-mono text-slate-300 mb-1">Message</label>
-                            <textarea id="message" rows="4" required placeholder="Discussing a project or job role..." class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyanAccent transition-colors"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyanAccent to-indigoAccent text-darkBg font-bold text-sm hover:shadow-lg hover:shadow-cyanAccent/20 transition-all">
-                            Send Message
-                        </button>
-                    </form>
-                    
-                    <!-- Notification Toast -->
-                    <div id="toast-msg" class="hidden mt-4 p-4 rounded-xl bg-emeraldAccent/10 border border-emeraldAccent/40 text-emeraldAccent text-xs font-mono text-center">
-                        <i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your message has been sent successfully.
-                    </div>
-                </div>
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <a href="mailto:ogbugodwinemeka@gmail.com" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyanAccent to-indigoAccent text-darkBg font-bold text-sm hover:shadow-lg hover:shadow-cyanAccent/20 transition-all flex items-center gap-2">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Send Email</span>
+                </a>
+                <a href="https://wa.me/2348143818332" target="_blank" class="px-6 py-3.5 rounded-xl glass-card text-emeraldAccent font-semibold text-sm border-emeraldAccent/30 hover:bg-emeraldAccent/10 transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp</span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-8 bg-darkBg border-t border-darkBorder text-center text-xs text-slate-500 font-mono">
-        <p>© 2026 Ogbu Godwin Emeka. Built with React, Tailwind CSS & DevOps engineering principles.</p>
+    <footer class="py-8 bg-darkBg border-t border-darkBorder text-center text-xs font-mono text-slate-500 w-full">
+        <p>&copy; 2026 Ogbu Godwin Emeka. Built with Tailwind CSS.</p>
     </footer>
 
-    <!-- FULLSCREEN PHOTO MODAL -->
-    <div id="photo-modal" class="fixed inset-0 z-50 bg-darkBg/95 backdrop-blur-xl hidden items-center justify-center p-4" onclick="closePhotoModal()">
-        <div class="relative max-w-xl w-full glass-card rounded-3xl p-4 sm:p-6 border border-cyanAccent/40 shadow-2xl" onclick="event.stopPropagation()">
-            <button onclick="closePhotoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="rounded-2xl overflow-hidden max-h-[80vh] flex justify-center bg-darkBg">
-                <img src="profile.jpg" 
-                     onerror="this.onerror=null; this.src='https://placehold.co/600x800/1e293b/06b6d4?text=Ogbu+Godwin+Emeka';" 
-                     alt="Ogbu Godwin Emeka Full Portrait" 
-                     class="max-h-[75vh] w-auto object-contain rounded-xl">
-            </div>
-            <div class="mt-4 text-center">
-                <h3 class="text-white font-bold text-lg">Ogbu Godwin Emeka</h3>
-                <p class="text-xs font-mono text-cyanAccent mt-0.5">DevOps Engineer & Software Developer</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- DOWNLOAD CV MODAL -->
-    <div id="cv-modal" class="fixed inset-0 z-50 bg-darkBg/90 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeCvModal()">
-        <div class="relative max-w-md w-full glass-card rounded-2xl p-6 border border-emeraldAccent/40 text-center space-y-4" onclick="event.stopPropagation()">
-            <button onclick="closeCvModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="w-16 h-16 rounded-full bg-emeraldAccent/10 text-emeraldAccent mx-auto flex items-center justify-center text-2xl">
-                <i class="fa-solid fa-file-pdf"></i>
-            </div>
-            <h3 class="text-white font-bold text-xl">Download Curriculum Vitae</h3>
-            <p class="text-slate-300 text-xs">Choose preferred format to download Ogbu Godwin Emeka's professional resume:</p>
-            <div class="space-y-2 pt-2">
-                <a href="#" onclick="downloadCvSim('PDF'); return false;" class="block w-full py-3 rounded-xl bg-emeraldAccent text-darkBg font-bold text-xs hover:bg-emerald-400 transition-colors">
-                    Download PDF Version
-                </a>
-                <a href="#" onclick="downloadCvSim('DOCX'); return false;" class="block w-full py-3 rounded-xl glass-card text-slate-200 font-bold text-xs hover:text-white transition-colors">
-                    Download DOCX Version
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- INTERACTIVE JAVASCRIPT -->
     <script>
-        // Toggle mobile navigation menu
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
             menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
         }
 
-        // Skill filtering logic
         function filterSkills(category) {
             const cards = document.querySelectorAll('.skill-card');
-            const btns = document.querySelectorAll('.skill-tab-btn');
+            const buttons = document.querySelectorAll('.skill-tab-btn');
 
-            btns.forEach(btn => {
+            buttons.forEach(btn => {
                 if (btn.getAttribute('data-category') === category) {
-                    btn.className = 'skill-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-cyanAccent text-darkBg';
+                    btn.className = 'skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-cyanAccent text-darkBg';
                 } else {
-                    btn.className = 'skill-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white';
+                    btn.className = 'skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white';
                 }
             });
 
@@ -795,42 +539,6 @@
                     card.style.display = 'none';
                 }
             });
-        }
-
-        // Photo Modal Functions
-        function openPhotoModal() {
-            document.getElementById('photo-modal').classList.remove('hidden');
-            document.getElementById('photo-modal').classList.add('flex');
-        }
-        function closePhotoModal() {
-            document.getElementById('photo-modal').classList.add('hidden');
-            document.getElementById('photo-modal').classList.remove('flex');
-        }
-
-        // CV Modal Functions
-        function openCvModal() {
-            document.getElementById('cv-modal').classList.remove('hidden');
-            document.getElementById('cv-modal').classList.add('flex');
-        }
-        function closeCvModal() {
-            document.getElementById('cv-modal').classList.add('hidden');
-            document.getElementById('cv-modal').classList.remove('flex');
-        }
-
-        function downloadCvSim(format) {
-            alert(`Initiating ${format} CV download for Ogbu Godwin Emeka.`);
-            closeCvModal();
-        }
-
-        // Contact Form Handling
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const toast = document.getElementById('toast-msg');
-            toast.classList.remove('hidden');
-            document.getElementById('contact-form').reset();
-            setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 5000);
         }
     </script>
 </body>
